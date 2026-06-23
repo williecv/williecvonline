@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Willie Meyer | Operations Leader</title>
+<style>
+  :root{
+    --navy:#0b1f3a;
+    --navy2:#102a4d;
+    --gold:#c9a24a;
+    --bg:#f6f8fb;
+    --ink:#182433;
+    --muted:#5b6778;
+    --card:#ffffff;
+    --line:#e4e9f0;
+    --blue:#2e6ea6;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:linear-gradient(180deg,#eef3f8 0%,#f7f9fc 100%);
+    color:var(--ink);
+  }
+
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:32px 20px 48px;
+  }
+
+  .hero{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);
+    color:#fff;
+    border-radius:22px;
+    padding:36px 34px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 18px 50px rgba(11,31,58,.18);
+  }
+
+  .hero:after{
+    content:"";
+    position:absolute;
+    right:-90px;
+    top:-40px;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    background:radial-gradient(circle at center, rgba(201,162,74,.22), transparent 62%);
+  }
+
+  .name{
+    font-size:42px;
+    line-height:1.05;
+    margin:0 0 8px;
+    font-weight:700;
+    letter-spacing:.2px;
+    position:relative;
+    z-index:1;
+  }
+
+  .title{
+    font-size:20px;
+    color:#e9edf5;
+    margin:0 0 16px;
+    font-weight:600;
+    position:relative;
+    z-index:1;
+  }
+
+  .contact-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:16px;
+    position:relative;
+    z-index:1;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:12px 18px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
+    transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  }
+
+  .btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+  }
+
+  .btn-email{
+    background:var(--gold);
+    color:var(--navy);
+  }
+
+  .btn-linkedin{
+    background:#ffffff;
+    color:var(--navy);
+  }
+
+  .metrics{
+    margin-top:18px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(20,31,50,.05);
+  }
+
+  .metrics-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+  }
+
+  .metric{
+    padding:16px 10px 14px;
+    text-align:center;
+    border-right:1px solid var(--line);
+    background:#fbfcfe;
+  }
+
+  .metric:last-child{
+    border-right:0;
+  }
+
+  .metric-value{
+    font-size:28px;
+    line-height:1;
+    font-weight:800;
+    color:var(--blue);
+    margin-bottom:6px;
+  }
+
+  .metric-label{
+    font-size:12px;
+    line-height:1.35;
+    color:var(--muted);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:18px;
+    margin-top:18px;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px 22px 20px;
+    box-shadow:0 8px 30px rgba(20,31,50,.05);
+  }
+
+  h2{
+    margin:0 0 14px;
+    font-size:20px;
+    color:var(--navy);
+  }
+
+  p{
+    line-height:1.6;
+    margin:0 0 12px;
+  }
+
+  ul{
+    margin:0;
+    padding-left:18px;
+    line-height:1.6;
+  }
+
+  .skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .skill{
+    padding:8px 12px;
+    border-radius:999px;
+    background:#eef3fb;
+    border:1px solid #dbe4f0;
+    font-size:13px;
+  }
+
+  .item{
+    padding:16px 0;
+    border-top:1px solid var(--line);
+  }
+
+  .item:first-child{
+    border-top:0;
+    padding-top:0;
+  }
+
+  .role{
+    font-weight:700;
+    color:var(--navy);
+    font-size:16px;
+    margin-bottom:4px;
+  }
+
+  .meta{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:8px;
+  }
+
+  .footer{
+    margin-top:18px;
+    color:var(--muted);
+    font-size:12px;
+    text-align:center;
+  }
+
+  @media (max-width: 920px){
+    .metrics-grid{grid-template-columns:repeat(2,1fr)}
+    .metric:nth-child(2n){border-right:0}
+    .metric:nth-child(n+5){border-top:1px solid var(--line)}
+  }
+
+  @media (max-width: 860px){
+    .grid{grid-template-columns:1fr}
+    .name{font-size:34px}
+    .hero{padding:28px 22px}
+    .card{padding:18px}
+  }
+
+  @media (max-width: 560px){
+    .metrics-grid{grid-template-columns:1fr}
+    .metric{
+      border-right:0;
+      border-top:1px solid var(--line);
+    }
+    .metric:first-child{border-top:0}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1 class="name">Willie Meyer</h1>
+      <p class="title">Operations Leader | Multi-Site Operations | Supply Chain | Facilities | Process Improvement</p>
+
+      <div class="contact-buttons">
+        <a class="btn btn-email" href="mailto:wp.meyer.wp@gmail.com?subject=Recruiter%20Inquiry%20for%20Willie%20Meyer">
+          Email Willie
+        </a>
+        <a class="btn btn-linkedin" href="https://www.linkedin.com/in/willie-meyer-8526083b8" target="_blank" rel="noopener noreferrer">
+          LinkedIn Profile
+        </a>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="metrics-grid">
+        <div class="metric">
+          <div class="metric-value">8</div>
+          <div class="metric-label">concurrent business units at peak</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">20</div>
+          <div class="metric-label">staff managed across all units</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">120~300</div>
+          <div class="metric-label">customers served per month</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">5</div>
+          <div class="metric-label">businesses built from zero</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">13 yrs</div>
+          <div class="metric-label">multi-location retail operations</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">6 yrs</div>
+          <div class="metric-label">continuous factory operations</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Summary</h2>
+        <p>Proven track record managing up to eight concurrent business units, leading teams of up to 20 employees, overseeing vendors, procurement, budgets, compliance, customer satisfaction, and end-to-end project delivery. Experienced in process improvement, operational systems, workforce management, KPI tracking, and continuous improvement initiatives.</p>
+        <p>Operations Manager with 30+ years of experience leading multi-site retail, supply chain, fabrication, construction, and service operations. Red Seal Certified Electrician with strong facilities and technical operations expertise. Fully authorized to work in the United States with a valid Texas driver's license.</p>
+      </section>
+
+      <section class="card">
+        <h2>Core Skills</h2>
+        <div class="skills">
+          <span class="skill">Multi-Site Operations</span>
+          <span class="skill">Process Improvement</span>
+          <span class="skill">SOP Development</span>
+          <span class="skill">Inventory Control</span>
+          <span class="skill">Team Leadership</span>
+          <span class="skill">P&L Management</span>
+          <span class="skill">Budgeting</span>
+          <span class="skill">Compliance</span>
+          <span class="skill">Procurement</span>
+          <span class="skill">Vendor Management</span>
+          <span class="skill">Supply Chain</span>
+          <span class="skill">Facilities Oversight</span>
+          <span class="skill">Project Delivery</span>
+          <span class="skill">KPI Tracking</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Experience</h2>
+
+        <div class="item">
+          <div class="role">Technical Chart Analyst – Self-Directed</div>
+          <div class="meta">2021 – Present</div>
+          <ul>
+            <li>Perform daily chart analysis on equities, futures (ES, NQ), crypto (BTC, ETH), and commodities (gold, oil).</li>
+            <li>Trade exclusively off price action and chart patterns – no fundamentals, no news trading.</li>
+            <li>Identify setups using support/resistance, trendlines, candlestick reversals (pin bars, engulfing), and classic patterns (flags, triangles, head & shoulders).</li>
+ <li>Maintain trade journal with visual screenshots and post‑trade reviews; current win rate ~55% with average R:R of 1:1.5.</li>
+ <li>Use TradingView for charting, alerts, and multi‑timeframe analysis.</li>
+
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="role">Operations Manager — KZN Jewellery Exchange CC</div>
+          <div class="meta">2011 – 2019</div>
+          <ul>
+            <li>Managed full retail operations including staffing, inventory, vendors, compliance, and customer service.</li>
+            <li>Built supplier and buyer networks across refineries, collectors, and trade partners.</li>
+            <li>Implemented CCTV, alarm systems, and cash-handling procedures.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="role">Operations &amp; Supply Chain Manager — Thula Baby Disposable Giants CC</div>
+          <div class="meta">2008 – 2012</div>
+          <ul>
+            <li>Managed production scheduling, procurement, logistics, and order fulfilment.</li>
+            <li>Developed SOPs to improve efficiency and stabilize supply chain performance.</li>
+            <li>Handled budgeting, invoicing, payroll, and reporting.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="role">Managing Director — Marble Tech Granite</div>
+          <div class="meta">2000 – 2006</div>
+          <ul>
+            <li>Directed full operations of fabrication and installation business alongside retail units.</li>
+            <li>Managed project delivery, procurement, scheduling, and quality control.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="role">Buyer &amp; Marketing Manager — Wietech Sales CC</div>
+          <div class="meta">1995 – 2008</div>
+          <ul>
+            <li>Operated three retail stores concurrently with procurement, stock planning, and financial reporting.</li>
+            <li>Recruited, trained, and managed staff across multiple sites.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Education & Certifications</h2>
+        <ul>
+          <li>Project Management using Six Sigma, Great Learning, 2026</li>
+          <li>Supply Chain Management, Great Learning, 2026</li>
+          <li>Leadership & Management, Great Learning, 2026</li>
+          <li>Sage Accounting Certification, Sage International, 2014</li>
+          <li>Red Seal Certified Electrician, JCI Group Training Centre, 1994</li>
+          <li>Electrical Advanced Training & Cable Jointing, JCI Group Training Centre, 1992–1993</li>
+          <li>Senior Certificate — Grade 12 (Technical), 1990</li>
+        </ul>
+
+        <h2 style="margin-top:18px;">Additional</h2>
+        <ul>
+          <li>Valid Texas driver's license.</li>
+          <li>Microsoft Office, Sage Accounting, POS and Inventory Systems, Google Workspace, TradingView / Pine Script.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="footer">Prepared as a recruiter-friendly HTML profile page for Willie Meyer.</div>
+  </div>
+</body>
+</html>
